@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class Collision2 : MonoBehaviour
 {
-    [SerializeField] Color hasPackageColor = Color.green;
+    // Start is called before the first frame update
+[SerializeField] Color hasPackageColor = Color.green;
     [SerializeField] Color noPackageColor = Color.white;
     SpriteRenderer spriteRenderer;
     private void Start() {
@@ -14,13 +15,13 @@ public class Collision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
 
         if (other.gameObject.tag == "House"){
-            Driver.speedSlow();
+            Driver2.speedSlow2();
         }
         else if (other.gameObject.tag == "Tree"){
-            Driver.speedSlow();
+            Driver2.speedSlow2();
         }
         else if (other.gameObject.tag == "Rock"){
-            Driver.speedSlow();
+            Driver2.speedSlow2();
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {
@@ -38,16 +39,15 @@ public class Collision : MonoBehaviour
             ScoreCounter.addPoint();
         } 
         else if (other.gameObject.tag =="Water"){
-            Driver.waterSlow();
+            Driver2.waterSlow2();
         }
         else if (other.gameObject.tag == "Boost"){
-            Driver.speedBoost();
+            Driver2.speedBoost2();
         } 
     }
     private void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.tag == "Water"){
-            Driver.waterSpeed();
+            Driver2.waterSpeed2();
         }
     }
-    
 }
